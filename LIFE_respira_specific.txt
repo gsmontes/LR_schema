@@ -1,0 +1,769 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#", 
+    "additionalProperties": false, 
+    "description": "This is the blueprint of the metadata block specific for the PAIRQURS community", 
+    "properties": {
+      "Obsolete": {
+        "description": "This register is obsolete.", 
+        "title": "Obsolete", 
+        "type": "boolean"
+      }, 
+      "calculated_parameter": {
+        "description": "The calculated parameters based on the primary data. Can be one or several of the following values: CO_GC, NO_GC, NO2_GC, NOx_GC, OX_GC, O3_GC, PM1, PM2.5, PM10, Temperature, Humidity, Elevation, Latitude, Longitude, Speed, Density, Effort, Slope, AQI.", 
+        "items": {
+          "enum": [
+            "CO_GC", 
+            "NO_GC", 
+            "NO2_GC", 
+            "NOx_GC", 
+            "OX_GC", 
+            "O3_GC", 
+            "PM1", 
+            "PM2.5", 
+            "PM10", 
+            "Temperature", 
+            "Humidity", 
+            "Elevation", 
+            "Latitude", 
+            "Longitude", 
+            "Speed", 
+            "Density", 
+            "Effort", 
+            "Slope", 
+            "AQI"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Calculated parameters", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "calculated_parameter_stats": {
+        "default": "mean", 
+        "description": "The type of parameter moment or statistics represented in the dataset. Can be one or several of the following values: count, mean, variance, STD, max, min, anomaly.", 
+        "items": {
+          "enum": [
+            "count", 
+            "mean", 
+            "variance", 
+            "STD", 
+            "max", 
+            "min", 
+            "anomaly"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Parameter statistics", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "calculated_parameter_units": {
+        "description": "Parameter units. Can be one or several of the following values: mV, ug/m3, degC, %, m, deg, V, dB, W.", 
+        "items": {
+          "enum": [
+            "mV", 
+            "ug/m3", 
+            "degC", 
+            "%", 
+            "m", 
+            "deg", 
+            "V", 
+            "dB", 
+            "W"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Calculated parameter units", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "calibrated": {
+        "description": "Data have been calibrated.", 
+        "title": "Calibrated", 
+        "type": "boolean"
+      }, 
+      "calibration_type": {
+        "description": "Type of calibration applied to sensor output. Can be one or several of the following values: raw, factory, lineal, polynomial, full, type_number.", 
+        "items": {
+          "enum": [
+            "raw", 
+            "factory", 
+            "lineal", 
+            "polynomial", 
+            "full", 
+            "type_number"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Calibration type", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "cfd_model": {
+        "description": "Computerized Fluid Dynamics Model used in the calculation.", 
+        "title": "CFD model", 
+        "type": "string"
+      }, 
+      "co_valid": {
+        "default": true, 
+        "description": "Flag for reliable CO2 concentration.", 
+        "title": "Valid CO data", 
+        "type": "boolean"
+      }, 
+      "dataset_anchor": {
+        "description": "Field relating this dataset to the related dataset.", 
+        "title": "Link field", 
+        "type": "string"
+      }, 
+      "dataset_fields": {
+        "description": "Number of fields (columns) in the dataset.", 
+        "title": "Number of Columns", 
+        "type": "integer"
+      }, 
+      "dataset_format": {
+        "description": "Format of the dataset. Can be one or several of the following values: dbf, sql, csv, txt.", 
+        "items": {
+          "enum": [
+            "dbf", 
+            "sql", 
+            "csv", 
+            "txt"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Dataset format", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "dataset_records": {
+        "description": "Number of records in the dataset.", 
+        "title": "Number of Records", 
+        "type": "integer"
+      }, 
+      "dataset_related": {
+        "description": "Other dataset related to this dataset (doi).", 
+        "title": "Dataset relationship", 
+        "type": "string"
+      }, 
+      "dataset_type": {
+        "description": "Type of dataset. Can be one of the following values: tuples, table.", 
+        "items": {
+          "enum": [
+            "tuples", 
+            "table"
+          ], 
+          "type": "string"
+        }, 
+        "maxItems": 1, 
+        "title": "Dataset type", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "day": {
+        "description": "The day(s) of the year represented in the data records [1,366].", 
+        "items": {
+          "maximum": 366, 
+          "minimum": 1, 
+          "type": "integer"
+        }, 
+        "title": "Day", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "end_time": {
+        "description": "The ending date-time for the dataset.", 
+        "format": "date-time", 
+        "title": "End Time", 
+        "type": "string"
+      }, 
+      "environment_parameter": {
+        "description": "Environmental parameters acquired from official sources. Can be one or several of the following values: Temperature, Humidity, Precipitation, PrecipitationType, WindSpeed, WindDirection, DewPoint, Inversion, Sunlight.", 
+        "items": {
+          "enum": [
+            "Temperature", 
+            "Humidity", 
+            "Precipitation", 
+            "PrecipitationType", 
+            "WindSpeed", 
+            "WindDirection", 
+            "DewPoint", 
+            "Inversion", 
+            "Sunlight"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Environment parameters", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "environment_parameter_units": {
+        "description": "Parameter units. Can be one or several of the following values: degC, %, mm, rain, snow, hail, m/s, yes, no.", 
+        "items": {
+          "enum": [
+            "degC", 
+            "%", 
+            "mm", 
+            "rain", 
+            "snow", 
+            "hail", 
+            "m/s", 
+            "yes", 
+            "no"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Environment parameter units", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "experiment_type": {
+        "description": "Type of experiment being represented. Can be one or several of the following values: roadReadings, vegetationReadings, heightReadings, pavementReadings, calibration, intercalibration, zero, test, model, environment.", 
+        "items": {
+          "enum": [
+            "roadReadings", 
+            "vegetationReadings", 
+            "heightReadings", 
+            "pavementReadings", 
+            "calibration", 
+            "intercalibration", 
+            "zero", 
+            "test", 
+            "model", 
+            "environment"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Experimental results type", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "file_type": {
+        "description": "The type of file contents. Can be one or several of the following values: MapGIS, MapImage, Dataset, Plot, Table, Image, Photo, Diagram.", 
+        "items": {
+          "enum": [
+            "MapGIS", 
+            "MapImage", 
+            "Dataset", 
+            "Plot", 
+            "Table", 
+            "Image", 
+            "Photo", 
+            "Diagram"
+          ], 
+          "type": "string"
+        }, 
+        "title": "File type", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "filter_read_type": {
+        "description": "Type of filter applied to the data readings. Can be none or one of the following values: peak, full.", 
+        "items": {
+          "enum": [
+            "none", 
+            "peak", 
+            "full"
+          ], 
+          "type": "string"
+        }, 
+        "maxItems": 1, 
+        "title": "Type of reading filter", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "filter_status_type": {
+        "description": "Type of filter applied to the data types (filter type format).", 
+        "items": {
+          "enum": [
+            "C", 
+            "S", 
+            "L", 
+            "G", 
+            "J", 
+            "H", 
+            "N"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Type of status filter", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "filtered": {
+        "description": "Data filtered by status codes.", 
+        "title": "Filtered", 
+        "type": "boolean"
+      }, 
+      "gis_format": {
+        "description": "GIS file format. Can be one or several of the following values: GeoTIFF, GML, KML, Shapefile.", 
+        "items": {
+          "enum": [
+            "GeoTIFF", 
+            "GML", 
+            "KML", 
+            "Shapefile"
+          ], 
+          "type": "string"
+        }, 
+        "title": "GIS format", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "hour_civil": {
+        "description": "The hour(s) of the day represented in the data records in the record's time zone including DST [0,23].", 
+        "items": {
+          "maximum": 23, 
+          "minimum": 0, 
+          "type": "integer"
+        }, 
+        "title": "Civil Hour", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "hour_utc": {
+        "description": "The hour(s) of the day represented in the data records as universal coordinated time (UTC) [0,23].", 
+        "items": {
+          "maximum": 23, 
+          "minimum": 0, 
+          "type": "integer"
+        }, 
+        "title": "UTC Hour", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "interpolated": {
+        "description": "The file contains interpolated data filling blanks.", 
+        "title": "Interpolated", 
+        "type": "boolean"
+      }, 
+      "interpolation_type": {
+        "description": "Type of interpolation used.", 
+        "title": "Type of interpolation", 
+        "type": "string"
+      }, 
+      "labor_days": {
+        "description": "The data are filtered according to civil labor/holiday. Can be one or several of the following values: labor, school, holiday, weekend, vacation.", 
+        "items": {
+          "enum": [
+            "labor", 
+            "school", 
+            "holiday", 
+            "weekend", 
+            "vacation"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Labor Days", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "lat_max": {
+        "description": "Maximum latitude of the dataset [-90,+90].", 
+        "maximum": 90, 
+        "minimum": -90, 
+        "title": "Latitude Max", 
+        "type": "number"
+      }, 
+      "lat_min": {
+        "description": "Minimum latitude of the dataset [-90,+90].", 
+        "maximum": 90, 
+        "minimum": -90, 
+        "title": "Latitude Min", 
+        "type": "number"
+      }, 
+      "lon_max": {
+        "description": "Maximum longitude of the dataset [-180,+180].", 
+        "maximum": 180, 
+        "minimum": -180, 
+        "title": "Longitude Max", 
+        "type": "number"
+      }, 
+      "lon_min": {
+        "description": "Minimum longitude of the dataset [-180,+180].", 
+        "maximum": 180, 
+        "minimum": -180, 
+        "title": "Longitude Min", 
+        "type": "number"
+      }, 
+      "map_format": {
+        "description": "Image file format. Can be one or several of the following values: JPG, PNG, TIFF.", 
+        "items": {
+          "enum": [
+            "JPG", 
+            "PNG", 
+            "TIFF"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Image format", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "map_projection": {
+        "description": "Map projection.", 
+        "title": "Projection", 
+        "type": "string"
+      }, 
+      "maximum_time": {
+        "description": "The longest period over which measurements are averaged in the dataset, in seconds [>0].", 
+        "exclusiveMinimum": true, 
+        "minimum": 0, 
+        "title": "Maximum Time Interval", 
+        "type": "integer"
+      }, 
+      "minimum_time": {
+        "description": "The shortest period over which measurements are averaged in the dataset, in seconds [>0].", 
+        "exclusiveMinimum": true, 
+        "minimum": 0, 
+        "title": "Minimum Time Interval", 
+        "type": "integer"
+      }, 
+      "month": {
+        "description": "The month(s) represented in the data records. Can be one or several of the following values: January, February, March, April, May, June, July, August, September, October, November, December.", 
+        "items": {
+          "enum": [
+            "January", 
+            "February", 
+            "March", 
+            "April", 
+            "May", 
+            "June", 
+            "July", 
+            "August", 
+            "September", 
+            "October", 
+            "November", 
+            "December"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Month", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "movement": {
+        "description": "State of movement for the readings. Can be one or several of the following values: static, bike, motorVehicle, pedestrian.", 
+        "items": {
+          "enum": [
+            "static", 
+            "bike", 
+            "motorVehicle", 
+            "pedestrian"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Movement type", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "no2_valid": {
+        "default": true, 
+        "description": "Flag for reliable NO2 concentration.", 
+        "title": "Valid NO2 data", 
+        "type": "boolean"
+      }, 
+      "no_valid": {
+        "default": true, 
+        "description": "Flag for reliable NO concentration.", 
+        "title": "Valid NO data", 
+        "type": "boolean"
+      }, 
+      "nox_valid": {
+        "default": true, 
+        "description": "Flag for reliable NOx concentration.", 
+        "title": "Valid NOx data", 
+        "type": "boolean"
+      }, 
+      "o3_valid": {
+        "default": true, 
+        "description": "Flag for reliable O3 concentration.", 
+        "title": "Valid O3 data", 
+        "type": "boolean"
+      }, 
+      "path_type": {
+        "description": "The type of path, road, or location the data were captured on. Can be one or several of the following values: Road, Street, BikePath, Sidewalk, MixedPath, PedestrianStreet, Park, BuildingExterior, BuildingInterior, FixedLocation, Other.", 
+        "items": {
+          "enum": [
+            "Road", 
+            "Street", 
+            "BikePath", 
+            "Sidewalk", 
+            "MixedPath", 
+            "PedestrianStreet", 
+            "Park", 
+            "BuildingExterior", 
+            "BuildingInterior", 
+            "FixedLocation", 
+            "Other"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Type of path", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "peak_hour": {
+        "description": "The data are filtered according to peak hours in labor days.", 
+        "title": "Peak hours", 
+        "type": "boolean"
+      }, 
+      "pixel_size": {
+        "default": "tile_size", 
+        "description": "Scale of the map as size of pixel side.", 
+        "title": "Pixel size", 
+        "type": "number"
+      }, 
+      "pm_valid": {
+        "default": true, 
+        "description": "Flag for reliable PM concentration.", 
+        "title": "Valid PM data", 
+        "type": "boolean"
+      }, 
+      "primary_parameter": {
+        "description": "The primary (sensor-reported) parameter(s) being represented in the dataset. Can be one or several of the following values: CO_AE, NO_AE, NO2_AE, NOx_AE, OX_AE, CO_WE, NO_WE, NO2_WE, NOx_WE, OX_WE, PM1, PM2.5, PM10, temperature, humidity, elevation, latitude, longitude, HDOP, battery, signal, heartbeat.", 
+        "items": {
+          "enum": [
+            "CO_AE", 
+            "NO_AE", 
+            "NO2_AE", 
+            "NOx_AE", 
+            "OX_AE", 
+            "CO_WE", 
+            "NO_WE", 
+            "NO2_WE", 
+            "NOx_WE", 
+            "OX_WE", 
+            "PM1", 
+            "PM2.5", 
+            "PM10", 
+            "temperature", 
+            "humidity", 
+            "elevation", 
+            "latitude", 
+            "longitude", 
+            "HDOP", 
+            "battery", 
+            "signal", 
+            "heartbeat"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Primary parameters", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "primary_parameter_units": {
+        "description": "Parameter units. Can be one or several of the following values: mV, ug/m3, degC, %, m, deg, V, dB, bpm.", 
+        "items": {
+          "enum": [
+            "mV", 
+            "ug/m3", 
+            "degC", 
+            "%", 
+            "m", 
+            "deg", 
+            "V", 
+            "dB", 
+            "bpm"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Primary parameter units", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "reliance": {
+        "description": "An ordinal estimate of the reliability of the applied calibration [1,5].", 
+        "maximum": 5, 
+        "minimum": 1, 
+        "title": "Calibration reliance", 
+        "type": "integer"
+      }, 
+      "season": {
+        "description": "The season(s) represented in the data records. Can be one or several of the following values: winter, spring, summer, autumn (also should be found when fall searched).", 
+        "items": {
+          "enum": [
+            "winter", 
+            "spring", 
+            "summer", 
+            "autumn"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Season", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "segment_level": {
+        "description": "parameter(s) limits for the segment.", 
+        "title": "Segmentation level", 
+        "type": "string"
+      }, 
+      "segmented": {
+        "description": "Data are segmented according to parameter(s). Can be no or one or several of the following values: precipitation, wind, inversion, speed, windSpeed, transportMode, light.", 
+        "items": {
+          "enum": [
+            "no", 
+            "precipitation", 
+            "wind", 
+            "inversion", 
+            "speed", 
+            "windSpeed", 
+            "transportMode", 
+            "light"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Segmented by", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "sensor_list": {
+        "description": "The list of sensor suites represented in the data (sensor ID list format).", 
+        "items": {
+          "enum": [
+            "Aire0", 
+            "Aire1", 
+            "Aire2", 
+            "Aire3", 
+            "Aire4", 
+            "Aire5", 
+            "Aire6", 
+            "Aire7", 
+            "Aire8", 
+            "Aire9", 
+            "Aire10", 
+            "Aire11", 
+            "Aire12", 
+            "Aire13", 
+            "Aire14", 
+            "Aire15", 
+            "Aire16", 
+            "Aire17", 
+            "Aire18", 
+            "Aire19", 
+            "Aire20", 
+            "Aire21", 
+            "Aire22", 
+            "Aire23", 
+            "Aire24", 
+            "Aire25", 
+            "Aire26", 
+            "Aire27", 
+            "Aire28", 
+            "Aire29", 
+            "Aire30", 
+            "Aire31", 
+            "Aire32", 
+            "Aire33", 
+            "Aire34", 
+            "Aire35", 
+            "Aire36", 
+            "Aire37", 
+            "Aire38", 
+            "Aire39", 
+            "Aire40", 
+            "Aire41", 
+            "Aire42", 
+            "Aire43", 
+            "Aire44", 
+            "Aire45", 
+            "Aire46", 
+            "Aire47", 
+            "Aire48", 
+            "Aire49", 
+            "Aire50", 
+            "Aire51"
+          ], 
+          "type": "string"
+        }, 
+        "title": "Sensor suite list", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "start_time": {
+        "description": "The starting date-time for the dataset.", 
+        "format": "date-time", 
+        "title": "Start Time", 
+        "type": "string"
+      }, 
+      "tile_aggregated": {
+        "default": false, 
+        "description": "Data are aggregated.", 
+        "title": "Spatial aggregation", 
+        "type": "boolean"
+      }, 
+      "tile_size": {
+        "description": "Length of the side of the sampling square aggregating the data (in meters).", 
+        "title": "Tile size", 
+        "type": "number"
+      }, 
+      "time_aggregation": {
+        "default": "no", 
+        "description": "Data records are aggregated by time. Can be one of the following values: hour, day, weekday, month, season, year, no.", 
+        "items": {
+          "enum": [
+            "hour", 
+            "day", 
+            "weekday", 
+            "month", 
+            "season", 
+            "year", 
+            "no"
+          ], 
+          "type": "string"
+        }, 
+        "maxItems": 1, 
+        "title": "Time aggregation", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "time_lag": {
+        "description": "Time offset in the records' timestamps as regards to official time, in seconds.", 
+        "title": "Time Lag", 
+        "type": "integer"
+      }, 
+      "time_zone": {
+        "description": "Time zone for the records' timestamps as UTC offset in hours and fractions [-12,+14].", 
+        "items": {
+          "maximum": 14, 
+          "minimum": -12, 
+          "type": "number"
+        }, 
+        "title": "Time Zone", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "weekday": {
+        "description": "The named day(s) of the week represented in the data records. Can be one or several of the following values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.", 
+        "items": {
+          "enum": [
+            "Monday", 
+            "Tuesday", 
+            "Wednesday", 
+            "Thursday", 
+            "Friday", 
+            "Saturday", 
+            "Sunday"
+          ], 
+          "type": "string"
+        }, 
+        "title": "weekday", 
+        "type": "array", 
+        "uniqueItems": true
+      }, 
+      "year": {
+        "description": "The year(s) represented in the data records (yearlist).", 
+        "items": {
+          "maximum": 2020, 
+          "minimum": 2015, 
+          "type": "integer"
+        }, 
+        "title": "Year", 
+        "type": "array", 
+        "uniqueItems": true
+      }
+    }, 
+    "title": "PAIRQURS Metadata", 
+    "type": "object"
+  }
