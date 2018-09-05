@@ -1,13 +1,80 @@
 {
+  "id": "ab6002cc-cb5d-4934-aceb-cb7db6adf0fa", 
+  "json_schema": {
     "$schema": "http://json-schema.org/draft-04/schema#", 
     "additionalProperties": false, 
+    "b2share": {
+      "presentation": {
+        "major": [
+          "file_type", 
+          "lat_max", 
+          "lat_min", 
+          "lon_max", 
+          "lon_min", 
+          "city_box", 
+          "path_type", 
+          "tile_aggregated", 
+          "tile_size", 
+          "sensor_list", 
+          "volunteer_id", 
+          "calculated_parameter", 
+          "calculated_parameter_units", 
+          "environment_parameter", 
+          "environment_parameter_units", 
+          "movement", 
+          "experiment_type", 
+          "calculated_parameter_stats", 
+          "primary_parameter", 
+          "primary_parameter_units", 
+          "calibrated", 
+          "calibration_type", 
+          "filter_read_type", 
+          "filter_status_type", 
+          "filtered", 
+          "segment_level", 
+          "segmented", 
+          "co_valid", 
+          "no_valid", 
+          "no2_valid", 
+          "nox_valid", 
+          "o3_valid", 
+          "pm_valid", 
+          "reliance", 
+          "day", 
+          "end_time", 
+          "hour_civil", 
+          "hour_utc", 
+          "labor_days", 
+          "maximum_time", 
+          "minimum_time", 
+          "month", 
+          "peak_hour", 
+          "season", 
+          "start_time", 
+          "time_aggregation", 
+          "time_lag", 
+          "time_zone", 
+          "weekday", 
+          "year", 
+          "dataset_records", 
+          "dataset_fields", 
+          "dataset_type", 
+          "dataset_format", 
+          "dataset_related", 
+          "dataset_anchor", 
+          "gis_format", 
+          "interpolated", 
+          "interpolation_type", 
+          "map_projection", 
+          "map_format", 
+          "pixel_size", 
+          "cfd_model", 
+          "obsolete"
+        ]
+      }
+    }, 
     "description": "This is the blueprint of the metadata block specific for the PAIRQURS community", 
     "properties": {
-      "Obsolete": {
-        "description": "This register is obsolete.", 
-        "title": "Obsolete", 
-        "type": "boolean"
-      }, 
       "calculated_parameter": {
         "description": "The calculated parameters based on the primary data. Can be one or several of the following values: CO_GC, NO_GC, NO2_GC, NOx_GC, OX_GC, O3_GC, PM1, PM2.5, PM10, Temperature, Humidity, Elevation, Latitude, Longitude, Speed, Density, Effort, Slope, AQI.", 
         "items": {
@@ -46,7 +113,7 @@
             "count", 
             "mean", 
             "variance", 
-            "STD", 
+            "std dev", 
             "max", 
             "min", 
             "anomaly"
@@ -61,7 +128,7 @@
         "description": "Parameter units. Can be one or several of the following values: mV, ug/m3, degC, %, m, deg, V, dB, W.", 
         "items": {
           "enum": [
-            "mV", 
+            "ppb", 
             "ug/m3", 
             "degC", 
             "%", 
@@ -104,10 +171,15 @@
         "title": "CFD model", 
         "type": "string"
       }, 
+      "city_box": {
+        "description": "Data outside the bounding rectangle for the Pamplona area are excluded.", 
+        "title": "City box", 
+        "type": "boolean"
+      }, 
       "co_valid": {
         "default": true, 
-        "description": "Flag for reliable CO2 concentration.", 
-        "title": "Valid CO data", 
+        "description": "Filtered for valid CO data only.", 
+        "title": "Valid CO data only", 
         "type": "boolean"
       }, 
       "dataset_anchor": {
@@ -275,13 +347,15 @@
         "description": "Type of filter applied to the data types (filter type format).", 
         "items": {
           "enum": [
-            "C", 
-            "S", 
-            "L", 
-            "G", 
-            "J", 
-            "H", 
-            "N"
+            "reference calibrations", 
+            "zero-air calibrations", 
+            "lab intercalibrations", 
+            "non-reading (transmitting) periods", 
+            "device or transmission error", 
+            "no geolocation available (headers or in-building)", 
+            "unreliable readings", 
+            "field intercalibrations", 
+            "no filter status present (=valid records)"
           ], 
           "type": "string"
         }, 
@@ -447,7 +521,7 @@
           "enum": [
             "static", 
             "bike", 
-            "motorVehicle", 
+            "motor vehicle", 
             "pedestrian"
           ], 
           "type": "string"
@@ -458,26 +532,31 @@
       }, 
       "no2_valid": {
         "default": true, 
-        "description": "Flag for reliable NO2 concentration.", 
-        "title": "Valid NO2 data", 
+        "description": "Filtered for valid NO2 data only.", 
+        "title": "Valid NO2 data only", 
         "type": "boolean"
       }, 
       "no_valid": {
         "default": true, 
-        "description": "Flag for reliable NO concentration.", 
-        "title": "Valid NO data", 
+        "description": "Filtered for valid NO data only.", 
+        "title": "Valid NO data only", 
         "type": "boolean"
       }, 
       "nox_valid": {
         "default": true, 
-        "description": "Flag for reliable NOx concentration.", 
-        "title": "Valid NOx data", 
+        "description": "Filtered for valid NOx data only.", 
+        "title": "Valid NOx data only", 
         "type": "boolean"
       }, 
       "o3_valid": {
         "default": true, 
-        "description": "Flag for reliable O3 concentration.", 
-        "title": "Valid O3 data", 
+        "description": "Filtered for valid O3 data only.", 
+        "title": "Valid O3 data only", 
+        "type": "boolean"
+      }, 
+      "obsolete": {
+        "description": "This register is obsolete.", 
+        "title": "Obsolete", 
         "type": "boolean"
       }, 
       "path_type": {
@@ -515,8 +594,8 @@
       }, 
       "pm_valid": {
         "default": true, 
-        "description": "Flag for reliable PM concentration.", 
-        "title": "Valid PM data", 
+        "description": "Filtered for valid PM data only.", 
+        "title": "Valid PM data only", 
         "type": "boolean"
       }, 
       "primary_parameter": {
@@ -703,6 +782,7 @@
         "description": "Data records are aggregated by time. Can be one of the following values: hour, day, weekday, month, season, year, no.", 
         "items": {
           "enum": [
+            "5 minutes", 
             "hour", 
             "day", 
             "weekday", 
@@ -733,6 +813,11 @@
         "title": "Time Zone", 
         "type": "array", 
         "uniqueItems": true
+      }, 
+      "volunteer_id": {
+        "description": "The ID of the volunteer.", 
+        "title": "Volunteer ID", 
+        "type": "string"
       }, 
       "weekday": {
         "description": "The named day(s) of the week represented in the data records. Can be one or several of the following values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.", 
@@ -766,4 +851,6 @@
     }, 
     "title": "PAIRQURS Metadata", 
     "type": "object"
-  }
+  }, 
+  "version": 0
+}
